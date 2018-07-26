@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    <form-beans>
+    
+    </form-beans>
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+    </global-forwards>
+
+    <action-mappings>
+
+        <action path = "/logout" parameter="method" scope="session" type="com.integra.controller.LoginController">
+            <forward name="login" path="/Login.jsp"/>            
+        </action>
+
+
+        <action parameter="method" path="/login" scope="session" type="com.integra.controller.LoginController"> 
+            <forward name="home" path="/Home.jsp"/>
+            <forward name="adminhome" path="/AdminHome.jsp"/>
+            <forward name="failure" path="/Login.jsp"/>            
+        </action>
+        <action path="/register" parameter="method" scope="session" type="com.integra.controller.RegisterController">
+            <forward name="success" path="/Login.jsp"/>
+            <forward name="failure" path="/SignUp.jsp"/>
+        </action>
+        <action parameter="method" path="/esign" scope="session" type="com.integra.controller.ESignController">
+            <forward name="success" path="/eSignResonse.jsp"/>
+            <forward name="failure" path="/eSignResonse.jsp"/>   
+        </action>
+
+    </action-mappings>
+     
+</struts-config>

@@ -1,0 +1,176 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+                <script src="jsonparser.js"></script>-->
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="css/StyleSheet_Home.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" />
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/esign.js"></script>
+        <!--<script type="text/javascript" src="js/readfile.js"></script>-->
+        <script type="text/javascript" src="js/sha256js.js"></script>
+        <script type="text/javascript" src="js/makeServerCall.js"></script>
+
+        <script>
+
+
+            $(function() {
+
+                $('#aspSubmit').on("click", function(e) {
+
+                    var form = $('#fileUploadForm')[0];
+                    var data = new FormData(form);
+                    $.ajax({
+                        type: "POST",
+                        url: "asprequest.do?method=generateHash",
+                        enctype: 'multipart/form-data',
+                        //             contentType: "application/xml;",
+                        data: data,
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        timeout: 600000,
+                        success: function(aspResp) {
+//                            alert("dff" + aspResp);
+                            var responseJson = JSON.parse(aspResp);
+//                                alert("responseJson " + responseJson);
+                            var esignXML = responseJson[0].response;
+                            alert(esignXML);
+//                            window.location.replace(esignXML);
+                            /////////////////////////////////////
+                            $.ajax({
+                                type: "POST",
+                                //url : "https://es-staging.cdac.in/esignlevelone/2.0/signdoc",
+                                // url : "https://10.208.16.47:31443/esign/2.0/signdoc",
+                                url: "https://es-staging.cdac.in/esignlevelone/2.0/signdoc",
+                                contentType: "application/xml; charset=utf-8",
+//                                headers: {
+//                                    'Access-Control-Allow-Origin': '*'
+//                                },
+//                                headers: {'Access-Control-Allow-Origin': 'https://172.72.231.117:9945'},
+                                xhrFields: {
+                                    withCredentials: true
+                                },
+                                data: esignXML,
+                                success: function(esignRes) {
+
+                                    alert("espUrl response " + esignRes);
+                                    var espResp = esignRes.responseXml;
+                                    var aspUrl = esignRes.responseUrl;
+                                    var status = esignRes.status;
+                                    alert("status " + status);
+
+                                    if (status == 1) {
+                                        xhrFields: {
+                                            withCredentials: true
+                                        }
+                                        window.location.replace(aspUrl);
+                                    } else if (status == 0) {
+                                        alert("Error ");
+                                    }
+
+                                },
+                                error: function(ts) {
+                                    alert("Error " + ts.responseText)
+                                }
+                            });
+                        },
+                        error: function(ts) {
+                            alert("Error " + ts.responseText)
+                        }
+                    });
+                    e.preventDefault();
+                });
+            });
+
+
+
+            /* $(document).ready(function() {
+             
+             $("#btnSubmit").click(function(event) {
+             
+             //stop submit the form, we will post it manually.
+             event.preventDefault();
+             
+             // Get form
+             var form = $('#fileUploadForm')[0];
+             
+             // Create an FormData object
+             var data = new FormData(form);
+             
+             // If you want to add an extra field for the FormData
+             data.append("CustomField", "This is some extra data, testing");
+             
+             // disabled the submit button
+             $("#btnSubmit").prop("disabled", true);
+             
+             $.ajax({
+             type: "POST",
+             url: "asprequest.do?method=signDoc",
+             enctype: 'multipart/form-data',
+             data: data,
+             processData: false,
+             contentType: false,
+             cache: false,
+             timeout: 600000,
+             success: function(data) {
+             $("#result").text(data);
+             alert("SUCCESS : " + data);
+             alert("data.length " + data.length);
+             if (data.length != 0) {
+             var responseJson = JSON.parse(data);
+             alert("responseJson " + responseJson);
+             alert(responseJson[0].response);
+             xhrFields: {
+             withCredentials: true
+             }
+             window.location.href = responseJson[0].response;
+             //                                window.location.replace(responseJson[0].response);
+             }
+             //                            for (var index = 0; index < data.length; index++) {
+             //                                alert(data[index].responseXml);
+             //                                addElementToCombo(data[index].subdistcode, data[index].subdistname, targetObj);
+             //                            }
+             $("#btnSubmit").prop("disabled", false);
+             
+             },
+             error: function(e) {
+             
+             $("#result").text(e.responseText);
+             alert("ERROR : " + e);
+             $("#btnSubmit").prop("disabled", false);
+             }
+             });
+             
+             });
+             
+             });*/
+        </script>
+    </head>
+    <body>
+
+        <h1>jQuery Ajax submit Multipart form</h1>
+
+        <!--<form method="POST" enctype="multipart/form-data" id="fileUploadForm">-->
+        <form name="fileUploadForm" id="fileUploadForm" method="post" onSubmit="return eSign();" enctype="multipart/form-data">
+            <input type="text" name="extraField"/><br/><br/>
+            <input type="file" name="files"/><br/><br/>
+            <!--<input type="submit" value="Submit" id="aspSubmit"/>-->
+            <input type="submit" id="aspSubmit" style="margin-top:0px;margin-bottom:20px" value="eSign"/>
+
+        </form>
+
+        <h1>Ajax Post Result</h1>
+        <span id="result"></span>
+
+    </body>

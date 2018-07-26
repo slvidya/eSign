@@ -1,0 +1,111 @@
+<html>
+
+    <title>test NSDL</title>
+    <head>
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.js"></script>
+        <script type="text/javascript" src="js/jquery.blockUI.js"></script>
+
+        <script>
+            $(function() {
+                $('#btneSign').on("click", function(e) {
+                    var ASPInput = {
+                        'uid': '588928507592',
+                        'dochash': '127b2b95c3571e6465bffff986ff3e1f78eede356456c124f88629a761fa9cd9',
+                        'sc': 'Y'
+                    }
+
+                    $.ajax({
+                        type: "POST",
+//                        url: asp_contextPath + "/rest/services/esign",
+                        url: "http://localhost:8080/iASP/rest/services/esign",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "xml",
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        data: JSON.stringify(ASPInput),
+                        success: function(ASPOutput) {
+                            alert(ASPOutput);
+                            document.getElementById('obj').value="5889028507592";
+                            document.getElementById('msg').value=ASPOutput;
+//                            var myform = $('#URL')[0];
+//                            var data = new FormData(myform);
+//                            data.append("msg", ASPOutput);
+//                            data.append("obj", "588928507592");
+//                            myform.action = "https://121.240.246.49:443/esign/2.0/signdoc/esignauth/";
+//                            myform.submit();
+
+                        },
+                        error: function(ts) {
+                            alert("eSign Request Failed");
+                        }
+                    });
+                    e.preventDefault();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <form name="URL" id="URL" method="post" enctype="multipart/form-data" action="https://121.240.246.49:443/esign/2.0/signdoc/esignauth/">
+            <!-- onSubmit="return eSign();" action="esign.do?method=esign"--> 
+            <div class="col-md-offset-1 col-md-10 col-sm-offset-0 col-sm-12 col-xs-offset-0 col-xs-12" style="border:1px solid #002166;background-color:#ccccff">
+                <!--<div class="col-md-offset-3 col-md-6 col-sm-offset-1 col-sm-10 col-xs-offset-0 col-xs-12" style="border:1px solid #002166;background-color:#ccccff">-->
+                <label class="col-xs-offset-0 col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10" style="text-align:center;font-size:20px;margin-top:20px;">eSign</label>
+                <table class="table">
+                    <tr class="row">
+                        <td class="col-md-3 col-sm-3 col-xs-3" align="right">
+                            <label id="lblAdhar">Aadhaar Number *</label>
+                        </td>
+                        <td class="col-md-3 col-sm-3 col-xs-3" align="left">
+                            <input type="text" id="tbAdhar" name="tbAdhar" placeholder="Enter Aadhaar Number" onkeypress="return onlyNumbers(event)" autofocus="autofocus" maxlength="12"/>
+                        </td>
+                        <td class="col-md-3 col-sm-3 col-xs-3" align="right">
+                            <label id="lblFilename">Choose File *</label>
+                        </td>
+                        <td class="col-md-3 col-sm-3 col-xs-3" align="left">
+                            <input type="file" id="tbFileName" name="tbFileName"/>
+                        </td>
+                    </tr>
+                </table>
+                <table class="table">
+                    <tr class="row">
+                        <td class="col-sm-1 col-md-1 col-lg-1" align="right">
+                            <input type="checkbox" id="chConsent" name="chConsent"/>
+                        </td>
+                        <td class="col-sm-11 col-md-11 col-lg-11">
+                            <label id="lblConsent">I hereby give my consent for using e-KYC data from Aadhaar 
+                                for the purpose of signing selected data and generating Digital Signature Certificate (DSC).*</label>
+
+                            <!--I give my consent to iSign to use my Aadhaar number & OTP to fetch my e-KYC details from UIDAI for digitally signing this document using the eSign service.-->
+                        </td>
+                    </tr>
+                </table>
+                <table class="table">
+                    <tr class="row">
+                        <td class="col-md-3 col-sm-3 col-xs-3">
+                        </td>
+                        <td class="col-md-3 col-sm-3 col-xs-3" align="right">
+                            <input class="btn btn-primary" type="submit" id="btneSign" style="margin-top:0px;margin-bottom:20px" value="eSign"/>
+                        </td>
+                        <td class="col-md-3 col-sm-3 col-xs-3" align="left">
+                            <input class="btn btn-primary" type="button" id="btnCanceleSign" style="margin-top:0px;margin-bottom:20px" value="Cancel" onclick="location.href = 'Home.jsp'" />
+                        </td>
+                        <td class="col-md-3 col-sm-3 col-xs-3">
+                            <input type="hidden" value="" name="obj" id="obj"/>
+                            <input type="hidden" value="" name="msg" id="msg"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+<!--        <form id="URL" name="URL" enctype="multipart/form-data">
+            <input type="hidden" value="" name="obj" id="obj"/>
+            <input type="hidden" value="" name="msg" id="msg"/>
+            <input type="submit" id="btneSign" value="eSign"/>
+        </form>-->
+
+    </body>
+
+</html>

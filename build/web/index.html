@@ -1,0 +1,147 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"   "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>iASP</title>
+        <link href="style/esign.css" rel="stylesheet" type="text/css"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <!--<meta http-equiv="X-UA-Compatible" content="IE=edge" />-->
+            <!--<meta http-equiv="X-UA-Compatible" content="IE=8" />-->
+
+            <script type="text/javascript" src="makeServerCall.js"></script>
+
+            <script>
+                function movetoNext(current, nextFieldID) {
+
+                    if (current.value.length >= current.maxLength) {
+                        document.getElementById(nextFieldID).focus();
+                    }
+                }
+                function onlyNumbers(event) {
+                    var charCode = (event.which) ? event.which : event.keyCode;
+                    if (charCode > 31 && (charCode < 48 || charCode > 57))
+                        return false;
+                    return true;
+                }
+
+                function getOtp()
+                {
+
+                    var adharnovalue = document.getElementById("adharnovalue1").value + document.getElementById("adharnovalue2").value + document.getElementById("adharnovalue3").value;
+                    if (adharnovalue === "")
+                    {
+                        alert("Please enter aadhar and authenticate");
+                        document.getElementById("adharnovalue1").focus();
+                        return false;
+                    } else {
+                        if (check(adharnovalue) === false)
+                        {
+                            alert("Invalid Aadhaar Number.Please Recheck");
+                            document.getElementById('adharnovalue1').value = "";
+                            document.getElementById('adharnovalue2').value = "";
+                            document.getElementById('adharnovalue3').value = "";
+                            document.getElementById("adharnovalue1").focus();
+                            return false;
+                        } else {
+                            // call getotp rest API
+                            // if success, show part2
+                            // else stay in part1 with error msg
+                            var input = "{'uid':'" + adharnovalue + "'}";
+
+                            var xhttp = new XMLHttpRequest();
+                            xhttp.open("POST", "asprequest.do?method=getOTP&uid=" + adharnovalue, false);
+                            xhttp.setRequestHeader("Content-type", "application/json"); // x-www-form-urlencoded
+                            xhttp.send("request=" + input);
+
+                            var res = eval("(" + xhttp.responseText + ")");
+//                            alert("res[0] "+JSON.stringify(res[0]))
+                            if (res[0].statusCode === "200") {
+                                document.getElementById('part2').style.display = "";
+                                document.getElementById('otpresptxt').innerHTML = "";
+                            } else {
+                                document.getElementById('part2').style.display = "none";
+                                document.getElementById('otpresp').style.display = "";
+//                                document.getElementById('otpresptxt').innerHTML = res[0].result + ". Try again later";
+                                document.getElementById('otpresptxt').innerHTML = JSON.stringify(res[0]);
+                            }
+
+                        }
+                    }
+
+                }
+                function signDoc()
+                {
+                    alert("onload");
+                        var parameter = '';
+                        var subcontextpath = "/login.do?method=login";
+                        var response = makeServerCall(subcontextpath, parameter);
+//                        var response = makeMultiPartCall(subcontextpath, parameter);
+                        alert("response " + response);
+                }
+
+    </script>
+    </head>
+    <!--<form method="Post" action="sign" enctype="multipart/form-data">-->
+    <body onload="signDoc()">
+        <div style="border: 1px solid #a0459c">
+            <h2 class="h2" style="font-style: normal;">
+                e - Sign
+            </h2>
+            <h4 class="h4" style="font-style: normal">
+                Integra's Application Service Provider
+            </h4>
+        </div>
+
+        <!--<form method="post" enctype="multipart/form-data" action="asprequest.do?method=signDoc">-->
+        <form name="eSignForm" method="post" enctype="multipart/form-data">
+            <div style="border: 1px solid #a0459c">
+                <table width="100%" border="0">
+                    <div id="part1" style="display: block;">
+                        <tr>
+                            <td style="width: 20%" align="right">
+                                <label class="label">
+                                    Aadhar Number :
+                                </label>
+                            </td>
+                            <td style="width: 80%" align="left">
+                                <input type="Text" style="width:45px;" name="adharnovalue1" id="adharnovalue1" onkeyup="movetoNext(this, 'adharnovalue2');" maxlength="4" onkeypress="return onlyNumbers(event);" autofocus="autofocus"/>
+                                <input type="Text" style="width:45px;" name="adharnovalue2" id="adharnovalue2" onkeyup="movetoNext(this, 'adharnovalue3');" maxlength="4" onkeypress="return onlyNumbers(event);"/>
+                                <input type="Text" style="width:45px;" name="adharnovalue3" id="adharnovalue3" maxlength="4" onkeypress="return onlyNumbers(event);"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 20%" align="right">
+                                <label class="label">
+                                    Select PDF File :
+                                </label>
+                            </td>
+                            <td style="width: 80%" align="left">
+                                <input type="file" name="file" id="pdfdoc" accept="application/pdf,image/png,image/bmp,image/jpeg,image/gif"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 20%" align="right">
+                                <input type="checkbox" name="chk_consent" id="chk_consent"></input>
+                            </td>
+                            <td style="width: 80%" align="left">
+                                <label class="label">
+                                    By pressing eSign button, I hereby give my consent for using e-KYC data from Aadhaar 
+                                    for the purpose of signing selected data and using e-KYC data for generating Digital Signature Certificate (DSC) (as above).
+                                </label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right">
+                                <input type="submit"  id="btnSubmit" value="eSign" onclick="signDoc();"/>
+                            </td>
+                            <td align="left">
+                                <input type="reset" id="btnClear" value="Clear"/>
+                            </td>
+                        </tr>
+                </table>
+
+            </div>
+        </form>
+    </body>
+</html>

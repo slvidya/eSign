@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery.parseXML demo</title>
+  <!--<script src="https://code.jquery.com/jquery-1.10.2.js"></script>-->
+  <script src="js/jquery-1.9.1.js"></script>
+</head>
+<body>
+ 
+<p id="someElement"></p>
+<p id="anotherElement"></p>
+ 
+<script>
+var xml = "<rss version='2.0'><channel><title>RSS Title</title></channel></rss>";
+myFunction(xml);
+function myFunction(xml) {
+var currLoanXml = '<company sample="text"><employee id="001" sex="M" age="20">Premshree Pillai</employee></company>';
+var pic = $(xml).filter('rss').attr('version');
+alert(pic);}
+</script>
+ 
+</body>
+</html>

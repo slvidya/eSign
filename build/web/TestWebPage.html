@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Muli%7CRoboto:400,300,500,700,900" rel="stylesheet"></head>
+  <body>
+
+    <header class="above-form">
+      <div class="banner">
+        <h1>THE CODE REVIEW</h1>
+      </div>
+      <div class="head-page">
+        <div class="border">
+          <h2>Signup for our newsletter</h2>
+          <p>Get the latest news on how your code is doing right in your inbox</p>
+        </div>  
+      </div>
+    </header>
+
+    <div class="main">
+      <h2>Contact Information</h2>
+
+      <form action='index.html' method='post'>
+
+        <fieldset class="details">
+          <label for="name">Full Name</label>  
+          <input type="text" id="name" name="username" placeholder="Required">
+          <label for="email">Email Address</label> 
+          <input type="email" id="mail" name="email" placeholder="Required">
+          <label for="number">Phone Number</label> 
+          <input type="text" id="number" name="number" placeholder="Required">  
+          <label for="street">Street Address</label> 
+          <input type="text" id="street" name="street"> 
+          <label for="city">City</label> 
+          <input type="text" id="city" name="city"> 
+          <label for="county">County</label>
+          <select id="county" name="county" placeholder="Choose County">
+            <option value="" disabled selected hidden>Choose County</option>
+            <option value="Avon">Avon</option>
+            <option value="Bedfordshire">Bedfordshire</option>
+            <option value="Berkshire">Berkshire</option>
+            <option value="City of Bristol">City of Bristol</option>
+            <option value="Buckinghamshire">Buckinghamshire</option>
+            <option value="Cambridgeshire">Cambridgeshire</option>
+            <option value="Cheshire">Cheshire</option>
+            <option value="Cleveland">Cleveland</option>
+            <option value="Cornwall">Cornwall</option>
+            <option value="City of London">City of London</option>
+            <option value="Cumberland">Cumberland</option>
+            <option value="Cumbria">Cumbria</option>
+            <option value="Derbyshire">Derbyshire</option>
+            <option value="Devon">Devon</option>
+            <option value="Durham">Durham</option>
+            <option value="East Suffolk">East Suffolk</option>
+            <option value="East Sussex">East Sussex</option>
+            <option value="Essex">Dorset</option>
+            <option value="Gloucestershire">Gloucestershire</option>
+            <option value="Greater London">Greater London</option>
+            <option value="Greater Manchester">Greater Manchester</option>
+            <option value="Hampshire">Hampshire</option>
+            <option value="Hereford and Worcester">Hereford and Worcester</option>
+            <option value="Herefordshire">Herefordshire</option>
+            <option value="Hertfordshire">Hertfordshire</option>
+            <option value="Humberside">Humberside</option>
+            <option value="Huntingdon and Peterborough">Huntingdon and Peterborough</option>
+            <option value="Isle of Ely">Isle of Ely</option>
+            <option value="Isle of Wight">Isle of Wight</option>
+            <option value="Kent">Kent</option>
+            <option value="Lancashire">Lancashire</option>
+            <option value="Leicestershire">Leicestershire</option>
+            <option value="Lincolnshire">Lincolnshire</option>
+            <option value="London">London</option>
+            <option value="Merseyside">Merseyside</option>
+            <option value="Middlesex">Middlesex</option>
+            <option value="Norfolk">Norfolk</option>
+            <option value="Northamptonshire">Northamptonshire</option>
+            <option value="Northumberland">Northumberland</option>
+            <option value="Yorkshire">Yorkshire</option>
+            <option value="Nottinghamshire">Nottinghamshire</option>
+            <option value="Oxfordshire">Oxfordshire</option>
+            <option value="Rutland">Rutland</option>
+            <option value="Shropshire">Shropshire</option>
+            <option value="Somerset">Somerset</option>
+            <option value="Staffordshire">Staffordshire</option>
+            <option value="Suffolk">Suffolk</option>
+            <option value="Surrey">Surrey</option>
+            <option value="Sussex">Sussex</option>
+            <option value="Tyne and Wear">Suffolk</option>
+            <option value="Warwickshire">Suffolk</option>
+            <option value="Westmorland">Westmorland</option>
+            <option value="Wiltshire">Wiltshire</option>
+            <option value="Worcestershire">Worcestershire</option>
+            <option value="Yorkshire">Yorkshire</option> 
+          </select>
+          <label for="post-code">Post Code</label> 
+          <input type="text" id="post-code" name="post-code"> 
+        </fieldset>  
+
+        <fieldset class="newsletter">
+          <h2>Newsletter</h2>
+          <p>Select the newsletters you would like to recieve</p>
+
+          <input type="checkbox" id="html" value="html" name="html">
+          <label for"html" class="checkbox">HTML News</label><br>
+
+          <input type="checkbox" id="css" value="css" name="css">
+          <label for"css" class="checkbox">CSS News</label><br>
+          <input type="checkbox" id="javascript" value="javascript" name="javascript">
+          <label for"javascript" class="checkbox">Javascript News</label>
+
+          <p>Newsletter format</p>
+
+          <input type='radio' id='html' value='html' name='format'>
+          <label for='html' class='radio'>HTML</label><br>
+          <input type='radio' id='plain' value='plain' name='format'>
+          <label for='plain' class='radio'>Plain text</label>
+
+          <label for="comments">Other topics you'd like to hear about</label>   
+          <textarea id="comments" name="comments"></textarea>
+
+          <button type='submit'>Sign Up</button>  
+        </fieldset>  
+      </form>  
+    </div>
+
+    <footer>
+
+    </footer>
+
+  </body>
+</html>

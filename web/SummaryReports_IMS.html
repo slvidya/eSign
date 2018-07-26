@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>SummaryReports Page</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="css/StyleSheet_Home.css" />
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jsonparser.js"></script>
+    <script src="js/Base64EncodeDecode.js"></script>
+	
+    <script type="text/javascript">
+    function displayClientWiseSumRpt(idToShow) {
+        document.getElementById('divIMS_SumRpt').style.display = "none";
+        document.getElementById('divTCS_SumRpt').style.display = "none";
+        document.getElementById('divINF_SumRpt').style.display = "none";
+
+        document.getElementById(idToShow).style.display = "none";
+    }
+    </script>
+
+</head>
+<body class="bg" onload="">
+    <!-- DIV - (Header)  -->
+    <div class="row" id="divHeader">
+        <div class="col-md-12 col-sm-12 col-xs-12" id="divSubHeaderStyle">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <img class="image img-responsive center-block" src="./Images/IntegraLogoSingleton.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- DIV - (Navigation bar)  -->
+    <div class="" id="divNavbar">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid" id="divNavbarStyle">
+                <ul class="nav navbar-nav row">
+                    <li><a class="navbarLinkStyle" href="AdminHome.html">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Reports
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Summary Reports</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="Login.html" class="btn btn-default "><span class="glyphicon glyphicon-chevron-left"></span> Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- DIV - (Summary Report)  -->
+    <div id="divSummaryRpt" style="display:block;">
+        <div class="row">
+            <div class="col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-12 col-lg-offset-0 col-lg-12" style="margin-top:-15px;text-align:center;">
+                <div class="row" style="">
+                    <div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
+                        <p><h4><span id=""><b></b></span></h4></p>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3" align="right">
+                        <p id="txtWelcomeSuffixName" style="color:#8d8d8d;float:right"><h5>ASP Client ID: IMS</h5></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" id="divIMS_SumRpt" style="display:block">
+            <div class="panel panel-primary">
+                <div class="panel-heading" style="text-align:center">
+                    <b>Summary Report of IMS</b>
+                </div>
+                <div class="panel-body">
+                    <table id="" class="table table-bordered styleSubDiv" style="border:2px solid white;background-color:whitesmoke;font-size:14px">
+                        <tr class="row">
+                            <th class="col-sm-1 col-md-1 col-lg-1" style="text-align:center;">Sl.No.</th>
+                            <th class="col-sm-5 col-md-5 col-lg-5" style="text-align:center;">User Name</th>
+                            <th class="col-sm-2 col-md-2 col-lg-2" style="text-align:center;">No. of Docs Uploaded</th>
+                            <th class="col-sm-2 col-md-2 col-lg-2" style="text-align:center;">No. of Docs Signed</th>
+                            <th class="col-sm-2 col-md-2 col-lg-2" style="text-align:center;">No. of Docs Downloaded</th>
+                        </tr>
+                        <tr class="row">
+                            <td class="col-sm-1 col-md-1 col-lg-1" style="text-align:center;">1</td>
+                            <td class="col-sm-5 col-md-5 col-lg-5" style="text-align:center;">Nandini</td>
+                            <td class="col-sm-2 col-md-2 col-lg-2" style="text-align:center;">3</td>
+                            <td class="col-sm-2 col-md-2 col-lg-2" style="text-align:center;">3</td>
+                            <td class="col-sm-2 col-md-2 col-lg-2" style="text-align:center;">1</td>
+                        </tr>
+                        <tr class="row">
+                            <td class="col-sm-1 col-md-1 col-lg-1" style="text-align:center;">2</td>
+                            <td class="col-sm-5 col-md-5 col-lg-5" style="text-align:center;">Vidya</td>
+                            <td class="col-sm-2 col-md-2 col-lg-2" style="text-align:center;">4</td>
+                            <td class="col-sm-2 col-md-2 col-lg-2" style="text-align:center;">3</td>
+                            <td class="col-sm-2 col-md-2 col-lg-2" style="text-align:center;">2</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

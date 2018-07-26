@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/Login.jsp</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/src/java/com/integra/controller/ESignController.java</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/nsdl_test.html</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/src/java/com/integra/utils/FileUtilities.java</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/src/java/com/integra/utils/ASPClientConfigurations.java</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/js/esign.js</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/eSign.jsp</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/js/esign_1.js</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/src/java/com/integra/controller/LoginController.java</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/src/java/com/integra/restclient/ASPRestClient.java</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/js/makeServerCall.js</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/eSign_NSDL.jsp</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/NavBar.jsp</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/nsdl_auth.html</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/js/esign_nsdl.js</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/eSignResonse.jsp</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/js/asp_context.js</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/js/validateaadhaar.js</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/src/java/com/integra/utils/PDFUtility.java</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/ActivityReports.jsp</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/errorpage.jsp</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/src/java/com/integra/controller/AuthController.java</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/src/java/com/inetgra/auth/AuthConstants.java</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/src/java/com/integra/controller/RegisterController.java</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/SignUp.jsp</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/css/jquery-ui.css</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/css/StyleSheet_Home.css</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/src/java/com/integra/model/User.java</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/src/java/com/integra/aspclient/ASPClient.java</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/src/java/com/integra/utils/ASPConstants.java</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/WEB-INF/struts-config.xml</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/src/java/com/integra/utils/PDFUtility_Backup.java</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/eSignGuest.jsp</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/src/java/com/integra/utils/ConfigListener.java</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/js/readfile.js</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/js/readProperties.js</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/js/ReadProperties.html</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/src/java/com/integra/utils/ContextBean.java</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/src/java/com/integra/exception/Errors.java</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/src/java/com/integra/utils/ErrorList.java</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/css/bootstrap.min.css</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/index.html</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/TestWebPage.html</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/css/styles.css</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/ajaxExample.html</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/js/jquery-3.2.1.min.js</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/src/java/com/integra/utils/ValidateSession.java</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/AdminNavBar.jsp</file>
+        <file>file:/E:/SVN_Checkout/eSign/iSign/web/Header.jsp</file>
+    </open-files>
+</project-private>

@@ -1,0 +1,85 @@
+body{
+    line-height:normal;
+    background-color:light blue;
+}
+
+.styleRptTable{
+    background-color:#D5EAF5;
+}
+.styleTableHdr{
+    background-color:#99b3e6;
+    font-size:16px;
+}
+
+.styleLogo{
+    /*border:2px solid lightgrey;*/
+    margin-top:5px;
+}
+#divSubHeaderStyle {
+    background-color:#ffffff;			/*#75b3f0; #9ac5f9;*/
+    border:2px solid darkblue;			/*darkgrey;*/
+}
+#divSubHeaderTextStyle{
+    text-align:center;
+    line-height:95px;
+    color:white;
+    font-size:50px;
+}
+#divNavbarStyle{
+    color: #002166; /*black;*/
+    background-color:white;
+    border:2px solid darkgrey;
+}
+.navbarLinkStyle{
+    color: #002166; /*black;*/
+    /*border-right:2px solid darkgrey;*/
+    margin-right:20px;
+    padding-right:20px;
+}
+#divNavbarStyle ul li,#divNavbarStyle ul li ul li{
+    color: #002166; /*black;*/
+    font-size:18px;
+}
+.styleDwldLinks{
+    font-size:16px;
+}
+/**/
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("../Images/website_background_1.jpg");
+    /* Full height */
+    /* height: 100%; */ 
+    margin-top:0px;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+.styleLogo{
+    border: 2px solid white;
+    height : 55px;
+    margin-top : 10px;
+}
+
+.imgDivStyle{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    /*align-items:left;*/
+}
+
+.checkmark {
+    line-height: 1.0;
+    border: 2px solid black;
+    outline: 2px solid black;
+}
+
+/*input[type="checkbox"] {
+    outline: 2px solid black;
+    line-height: 1.0;
+}*/
